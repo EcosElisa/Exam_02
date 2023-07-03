@@ -27,33 +27,77 @@
 
 #include <unistd.h>
 
-int	checkspace(char c)
+int	check_spaces(char c)
 {
-	if ((c >= '\b' && c <= '\r') || c == ' ')
+	if (c == ' ' || c == '\t')
 		return (1);
-	return (0);
+	else
+		return (0);
 }
 
-int	main(int argc, char *argv[])
+int	main(int argc, char **argv)
 {
 	int	i = 0;
 
 	if (argc == 2)
 	{
-		while(checkspace(argv[1][i]) && argv[i][i] != '\0')
-			i++;
-		while (argv[i] != '\0')
+		while (argv[1][i])
 		{
-			write(1, &argv[1][i]);
-			i++;
-			if (checkspace(argv[1][i]))
+			while (check_spaces(argv[1][i]) && argv[1][i] != '\0')
+				i++;
+			while (!(check_spaces(argv[1][i])) && argv[1][i] != '\0')
 			{
-				while (checkspace(argv[1][i]) && argv[1][i] != '\0')
+				write(1, &argv[1][i], 1);
+				i++;
+			}
+			if (check_spaces(argv[1][i]))
+			{
+				while (check_spaces(argv[1][i]) && argv[1][i] != '\0')
 					i++;
-				if (!(checkspace(argv[1][i])) && argv[1][i] != '\0')
+				if (!(check_spaces(argv[1][i])) && argv[1][i] != '\0')
+				{
+					write(1, " ", 1);
 					i--;
+				}
 			}
 		}
+		write(1, "\n", 1);
 	}
-	write(1, "\n", 1);
+	else
+		write(1, "\n", 1);
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////
+
+// int	checkspace(char c)
+// {
+// 	if ((c >= '\b' && c <= '\r') || c == ' ')
+// 		return (1);
+// 	return (0);
+// }
+
+// int	main(int argc, char *argv[])
+// {
+// 	int	i = 0;
+
+// 	if (argc == 2)
+// 	{
+// 		while(checkspace(argv[1][i]) && argv[1][i] != '\0')
+// 			i++;
+// 		while (argv[i] != '\0')
+// 		{
+// 			write(1, &argv[1][i]);
+// 			i++;
+// 			if (checkspace(argv[1][i]))
+// 			{
+// 				while (checkspace(argv[1][i]) && argv[1][i] != '\0')
+// 					i++;
+// 				if (!(checkspace(argv[1][i])) && argv[1][i] != '\0')
+// 					i--;
+// 			}
+// 		}
+// 	}
+// 	write(1, "\n", 1);
+// }
+
+/////////////////////////////////////////////////////////////////////////////////////////

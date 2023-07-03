@@ -66,11 +66,11 @@ int	main()
 
 	while (count <= 100)
 	{
-		if (!(count % 3))
+		if (!(count % 3) && (count % 15))
 			ft_putstr("fizz\n");
-		else if (!(count % 5))
+		else if (!(count % 5) && (count % 15))
 			ft_putstr("buzz\n");
-		else if (!(count % 3) && !(count % 5))
+		else if (!(count % 15))
 			ft_putstr("fizzbuzz\n");
 		else
 		{
