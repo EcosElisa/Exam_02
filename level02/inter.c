@@ -24,39 +24,38 @@
 
 #include <unistd.h>
 
-int is_char_present(char *str, char c)
+char	*is_char_present(char *str, char c)
 {
 	int	i = 0;
 
 	while (str[i])
 	{
 		if (str[i] == c)
-			return 1;
+			return(&str[i]);
 		i++;
 	}
-	return 0;
+	return(NULL);
 }
 
 void	inter(char *str1, char *str2)
 {
-	int i = 0;
-
+	int	i = 0;
 	while (str1[i])
 	{
-		if (is_char_present(str2, str1[i]) && !is_char_present(str1, str1[i]))
+		if (is_char_present(str1, str1[i]) == &str1[i] && is_char_present(str2, str1[i]))
 			write(1, &str1[i], 1);
 		i++;
 	}
-	write(1, "\n", 1);
 }
 
-int	main(int argc, char *argv[]) 
+int	main(int argc, char **argv)
 {
-	if (argc != 3)
+	if (argc == 3)
 	{
+		inter(argv[1], argv[2]);
 		write(1, "\n", 1);
-		return 0;
 	}
-	inter(argv[1], argv[2]);
-	return 0;
+	else
+		write(1, "\n", 1);
+	return(0);
 }
