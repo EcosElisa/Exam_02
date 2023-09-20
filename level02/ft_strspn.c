@@ -22,8 +22,8 @@
 // encontra um caractere que não está presente em str2, a função interrompe
 // a contagem e retorna o valor atual do comprimento.
 
-#include <stdio.h>
-#include <string.h>
+// #include <stdio.h>
+// #include <string.h>
 
 char	*ft_strchr(const char *str, int c)
 {
@@ -51,10 +51,10 @@ size_t	ft_strspn(const char *s, const char *accept)
 	return (i);
 }
 
-int	main()
-{
-	printf("ORIGINAL: %ld\n", strspn("Hello, World!", "HelloWrd"));
-	printf("    FAKE: %ld\n", ft_strspn("Hello, World!", "HelloWrd"));
-	printf("ORIGINAL: %ld\n", strspn("Vamos contar até 10!", "até"));
-	printf("    FAKE: %ld\n", ft_strspn("Vamos contar até 10!", "até"));
-}
+// int	main()
+// {
+// 	printf("ORIGINAL: %ld\n", strspn("Hello, World!", "HelloWrd"));
+// 	printf("    FAKE: %ld\n", ft_strspn("Hello, World!", "HelloWrd"));
+// 	printf("ORIGINAL: %ld\n", strspn("Vamos contar até 10!", "até"));
+// 	printf("    FAKE: %ld\n", ft_strspn("Vamos contar até 10!", "até"));
+// }

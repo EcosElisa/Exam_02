@@ -3,8 +3,8 @@
 //seguinte maneira:
 //	char	*ft_strrev(char *str);
 
-#include <stdio.h>
-#include <stdlib.h>
+// #include <stdio.h>
+// #include <stdlib.h>
 
 static int	ft_strlen(char *str)
 {
@@ -40,9 +40,9 @@ char	*ft_strrev(char *str)
 	return (str);
 }
 
-int	main(void)
-{
-	char *palavra = "batata";
-	printf("%s\n", palavra);
-	ft_strrev(palavra);
-}
+// int	main(void)
+// {
+// 	char *palavra = "batata";
+// 	printf("%s\n", palavra);
+// 	ft_strrev(palavra);
+// }

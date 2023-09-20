@@ -23,17 +23,34 @@
 
 #include <unistd.h>
 
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
 int	ft_atoi(char *str)
 {
 	int	res = 0;
 	int	i = 0;
 
-	while (str[i])
+	while (str[i] >= '0' && str[i] <= '9')
 	{
 		res = res * 10 + (str[i] - '0');
 		i++;
 	}
 	return (res);
+}
+
+void	ft_putnbr(int nbr)
+{
+	if (nbr < 10)
+	{
+		ft_putchar(nbr + '0');
+		return ;
+	}
+	if (nbr > 9)
+		ft_putnbr(nbr / 10);
+	ft_putnbr(nbr % 10);
 }
 
 int	ft_is_prime(int num)
@@ -51,15 +68,6 @@ int	ft_is_prime(int num)
 	return (1);
 }
 
-void	put_nbr(int n)
-{
-	char	digit;
-	if (n > 9)
-		put_nbr(n / 10);
-	digit = n % 10 + '0';
-	write(1, &digit, 1);
-}
-
 int	main(int argc, char **argv)
 {
 	if (argc == 2)
@@ -73,7 +81,7 @@ int	main(int argc, char **argv)
 				sum += nbr;
 			nbr--;
 		}
-		put_nbr(sum);
+		ft_putnbr(sum);
 	}
 	write(1, "\n", 1);
 }

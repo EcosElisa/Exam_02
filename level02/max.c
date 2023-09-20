@@ -30,7 +30,7 @@ int		max(int* tab, unsigned int len)
 			maximo = tab[i];
 		i++;
 	}
-	printf("%d\n", maximo);
+	//printf("%d\n", maximo);
 	return (maximo);
 }
 

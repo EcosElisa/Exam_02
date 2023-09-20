@@ -28,27 +28,27 @@
 
 int ft_strlen(char *str)
 {
-    int i = 0;
-    while (str[i] && str[i] != '\0')
-        i++;
-    return (i);
+	int i = 0;
+	while (str[i] && str[i] != '\0')
+		i++;
+	return (i);
 }
 
 int main(int argc, char **argv)
 {
-    if (argc == 2)
-    {
-        int len = ft_strlen(argv[1]) - 1;
+	if (argc == 2)
+	{
+		int len = ft_strlen(argv[1]) - 1;
 
-        while (argv[1][len] == ' ' || argv[1][len] == '\t')
-            len--;
-        while (argv[1][len] != ' ' && argv[1][len] != '\t')
-            len--;
-        len++;
-        while (argv[1][len] != ' ' && argv[1][len] != '\t' && argv[1][len] != '\0')
-            write(1, &argv[1][len++], 1);
-         write(1, "\n", 1);
-    }
-    else
-        write(1, "\n", 1);
+		while (argv[1][len] == ' ' || argv[1][len] == '\t')
+			len--;
+		while (argv[1][len] != ' ' && argv[1][len] != '\t')
+			len--;
+		len++;
+		while (argv[1][len] != ' ' && argv[1][len] != '\t' && argv[1][len] != '\0')
+			write(1, &argv[1][len++], 1);
+		write(1, "\n", 1);
+	}
+	else
+		write(1, "\n", 1);
 }

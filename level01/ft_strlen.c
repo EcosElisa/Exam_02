@@ -2,14 +2,11 @@
 
 int	ft_strlen(char *str)
 {
-	int	count = 0;
+	int	i = 0;
 
-	while (*str && *str != '0')
-	{
-		count++;
-		str++;
-	}
-	return (count);
+	while (str[i] && str[i] != '0')
+		i++;
+	return (i);
 }
 
 // int	main(void)

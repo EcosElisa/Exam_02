@@ -10,17 +10,15 @@
 
 // char    *ft_strdup(char *src);
 
-#include <stdlib.h>
-#include <stdio.h>
+// #include <stdlib.h>
+// #include <stdio.h>
 
 static int	ft_strlen(char *str)
 {
-	int	size = 0;
-	while (*str)
-	{
-		str++;
-		size++;
-	}
+	int	i = 0;
+	
+	while (str[i] && str[i] != '\0')
+		i++;
 	return (size);
 }
 
@@ -43,9 +41,9 @@ char	*ft_strdup(char *src)
 	return (dest);
 }
 
-int	main(void)
-{
-	char	*src = "Não aguento mais a 42!";
-	ft_strdup(src);
-	printf("source: %s\n", src);
-}
+// int	main(void)
+// {
+// 	char	*src = "Não aguento mais a 42!";
+// 	ft_strdup(src);
+// 	printf("source: %s\n", src);
+// }
